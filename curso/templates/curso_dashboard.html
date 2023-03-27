@@ -1,0 +1,44 @@
+{% extends 'base.html' %} 
+
+{% load static %}
+{% load bootstrap %}
+
+{% block title %}Curso{% endblock %}
+
+{% block content %} 
+
+    <div class="info-div">
+        <a href="{% url 'curso:cadastrar' %}" class="cadastrar">
+            <img src="../../static/img/cadastro_simbolo.png" alt="" width="30px"> 
+            CADASTRAR
+        </a>
+    </div>
+    
+    <table class="table table-striped table-sm">
+      <thead class="table-dark">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Nome</th>
+          <th scope="col">Codigo</th>
+          <th scope="col">Descrição</th>
+          <th scope="col">Editar</th>
+          <th scope="col">Deletar</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in cursos_cadastrados %}
+        <tr>
+        <th scope="row">{{ forloop.counter }}</th>
+          <td>{{item.nome_curso}}</td>
+          <td>{{item.codigo_curso}}</td>
+          <td>{{item.descricao}}</td>
+
+          <td><a class="btn btn-sm btn-warning" href="{% url 'curso:editar' item.id %}">Editar</a></td>
+          <td><a class="btn btn-sm btn-danger" href="{% url 'curso:deletar' item.id %}" onclick="return confirm('Deseja deletar esse curso?')">Deletar</a></td>
+
+        {% endfor %}
+        </tr>
+    
+    </tbody>
+    </table>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'base.html' %} 
+
+{% load static %}
+{% load bootstrap %}
+
+{% block title %}Curso{% endblock %}
+
+{% block content %} 
+
+{%if is_valid == True%}
+
+<div class="info-div">
+    <div class="mensagem">
+        <img src="../../static/img/sucess_message.png" alt="" width="50px">
+        <h3>Curso deletado.</h3>
+    </div>
+</div>
+{%endif%}
+
+{% if is_valid == False %}
+<div class="info-div">
+    <div class="mensagem-red">
+        <img src="../../static/img/error_message.png" alt="" width="50px">
+        <h3>{{mensagem}}</h3>
+    </div>
+</div>
+{% endif %}
+<div class="margin-auto"> <a class="btn btn-sm btn-primary" href="{% url 'curso:dashboard' %}">Retornar para dashboard</a></div>
+
+
+
+{% endblock %}
