@@ -1,0 +1,54 @@
+{% extends 'base.html' %} 
+
+{% load static %}
+{% load bootstrap %}
+
+{% block title %}Turma{% endblock %}
+
+{% block content %} 
+    
+    {% if form.errors %}
+        <div class="mensage">
+            {{ forms.errors }}
+        </div>
+    {% endif %}
+
+    {% if is_valid == True%}
+        <div class="info-div">
+            <div class="mensagem">
+                <img src="../../static/img/sucess_message.png" alt="" width="50px">
+                <h3>Aluno alocado!</h3>
+            </div>
+        </div>
+        
+        <div class="margin-auto"> <a class="btn btn-sm btn-primary" href="{% url 'turma:dashboard' %}">Retornar para dashboard</a></div>
+    
+    {% endif %}
+
+    {% if is_valid == False%}
+    <div class="info-div-red">
+        <div class="mensagem-red">
+            <img src="../../static/img/error_message.png" alt="" width="90px">
+            <h3>Aluno já alocado!</h3>
+        </div>
+    </div>
+    
+    <div class="margin-auto"> <a class="btn btn-sm btn-primary" href="{% url 'turma:dashboard' %}">Retornar para dashboard</a></div>
+
+     {% endif %}
+
+    {% if is_not_cadastred == True %}
+    <div class="form-title box">
+        <h3>Alocação de aluno</h3>
+    </div>
+    
+    <form action="{% url 'turma:alocarAluno' %}" method="post">
+            {% csrf_token %}
+
+            {{ form|bootstrap }} <span></span> 
+        <div class="button-div">
+            <button type="submit" class="button-input" > Alocar</button>
+        </div>
+    </form>
+    {% endif %}
+{% endblock %}

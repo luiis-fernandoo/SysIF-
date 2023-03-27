@@ -1,0 +1,19 @@
+{% extends 'base.html' %} 
+
+{% load static %}
+{% load bootstrap %}
+
+{% block title %}Avaliação{% endblock %}
+
+{% block content %} 
+    
+<div class="info-div">
+    <div class="mensagem">
+        <img src="../../static/img/sucess_message.png" alt="" width="50px">
+        <h3>Avaliacao deletada.</h3>
+    </div>
+</div>
+
+<div class="margin-auto"> <a class="btn btn-sm btn-primary" href="{% url 'turma:dashboardAvaliacao' %}">Retornar para dashboard</a></div>
+
+{% endblock %}

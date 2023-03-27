@@ -1,0 +1,44 @@
+{% extends 'base.html' %} 
+
+{% load static %}
+{% load bootstrap %}
+
+{% block title %}Turma{% endblock %}
+
+{% block content %} 
+    
+    {% if form.errors %}
+        <div class="mensage">
+            {{ forms.errors }}
+        </div>
+    {% endif %}
+
+   
+
+    {% if is_valid %}
+        <div class="info-div">
+            <div href="{% url 'turma:cadastrar' %}" class="mensagem">
+                <img src="../../static/img/sucess_message.png" alt="" width="50px">
+                <h3>Cadastro realizado.</h3>
+            </div>
+        </div>
+        
+        <div class="margin-auto"> <a class="btn btn-sm btn-primary" href="{% url 'turma:dashboard' %}">Retornar para dashboard</a></div>
+    
+    {% endif %}
+
+    {% if is_not_cadastred == True %}
+    <div class="form-title box">
+        <h3>Cadastro de turma</h3>
+    </div>
+    
+    <form action="{% url 'turma:cadastrar' %}" method="post">
+            {% csrf_token %}
+
+            {{ form|bootstrap }} <span></span> 
+        <div class="button-div">
+            <button type="submit" class="button-input" > Cadastrar</button>
+        </div>
+    </form>
+    {% endif %}
+{% endblock %}

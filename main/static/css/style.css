@@ -1,0 +1,250 @@
+body{
+    background: rgb(255, 255, 255) url("../img/background.png") no-repeat left top;
+    background-size: 1800px;
+}
+table{
+    margin-top: 20px;
+}
+.modal img{
+    margin: 0px 10px;
+}
+.modal {
+    width: 300px;
+}
+.modal-content {
+  width: 300px;
+}
+.list-group-item:hover {
+  background-color: rgb(96, 190, 96) !important;
+}
+.list-group-item a, a:link, a:visited,a:active, a:hover{
+    text-decoration: none;
+    color: black;
+}
+.list-group-item:first-child {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+.list-group-item:last-child {
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.modal {
+    --bs-modal-header-border-color: rgb(96, 190, 96);
+    --bs-modal-header-border-width: 1px;
+  }
+
+@media(min-height: 585px) {
+    .modal-content {
+        border-top: none;
+        background: white url("../img/men_dashboard.png") no-repeat left bottom;
+        background-size: 63%;
+    }
+}
+
+.modal-header {
+    padding: 10px;
+    padding-right: 25px;
+    border-bottom: var(--bs-modal-header-border-width) solid var(--bs-modal-header-border-color);
+  }
+.modal-body li{
+    border: none;
+    border-radius: 10px;
+}
+.crud-section{
+    height: 29em;
+    box-shadow: 0 1px 25px black;
+    /* border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px; */
+    margin-top: 30px;
+    background-color: white;
+    padding: 5px;
+    overflow-y: scroll;
+    scrollbar-width: 4px;
+    scrollbar-color:rgb(96, 190, 96) rgb(97, 97, 94);
+}
+@media(min-height: 620px) {
+    .crud-section{
+        height: 30em;
+    }
+}
+
+@media(max-width: 1000px) {
+    .dash-item span{
+        font-size: 80%;;
+    }
+    .dash-item img{
+        width: 40px;
+    }
+}
+
+@media(max-width: 400px) {
+    .dash-item span{
+        font-size: 70%;;
+    }
+    .dash-item img{
+        width: 25px;
+    }
+}
+.regulador{
+    width: 90%;
+    height: 80%;
+    margin: 40px auto;
+}
+
+.form-group{
+    display: flex;
+    flex: 0 0 50%;
+    max-width: 100%;
+    margin: 10px;
+    width: 29em;
+    display: inline-block;
+}
+
+@media(max-width: 1210px) {
+    .form-group{
+        width: 50em;
+    }
+}
+
+.form-title{
+    display: grid;
+    margin: 20px;
+}
+.form-title h3{
+    margin: auto;
+}
+.form label{
+    display: block;
+}
+.button-div{
+    margin-top: 10px;
+    display: grid;
+}
+.button-input{
+    border-radius: 10px;
+    background-color:rgb(69, 175, 69);
+    padding: 10px 40px;
+    margin: auto;
+}
+.button-input:hover{
+    background-color: rgb(96, 190, 96);
+}
+.mensagem{
+    width: 40%;
+    color: rgb(9, 80, 9);
+    border-radius: 10px;
+    background-color: rgb(96, 190, 96);
+    padding: 10px 10px;
+    margin: auto;
+    text-align: center;
+}
+
+@media(min-width: 1000px) {
+    .mensagem{
+        width: 50%;
+    }
+}
+
+@media(min-width: 800px) {
+    .mensagem{
+        width: 65%;
+    }
+}
+
+@media(min-width: 300px) {
+    .mensagem{
+        width: 65%;
+    }
+}
+.btn{
+    color: black;
+}
+.btn:hover {
+    color: white;
+}
+.info-div{
+    margin: auto;
+    display: flex;
+}
+.info-div a, .info-div a:link, .info-div a:visited, .info-div a:active, .info-div a:hover{
+    text-decoration: none;
+   color: rgb(20, 65, 20);
+}
+
+.cadastrar{
+    border-radius: 10px;
+    background-color: rgb(69, 175, 69);
+    padding: 10px 10px;
+    margin: auto;
+    text-align: center;
+}
+.cadastrar img{
+    display: inline;
+}
+.cadastrar h4{
+    margin-top: 0;
+    display: inline;
+}
+
+.cadastrar:hover{
+    background-color: rgb(96, 190, 96);
+    box-shadow: 0 2px 5px black;
+}
+
+.margin-auto{
+    width: 19%;
+    margin: auto;
+    margin-top: 20px;
+}
+
+@media(max-width: 800px) {
+    .margin-auto{
+        width: 30%;
+    }
+}
+
+.table tr.fit,
+.table td.fit, 
+.table th.fit {
+white-space: nowrap;
+width: 1%;
+}
+
+.dash-item{
+    text-decoration: none;
+    color:  rgb(20, 65, 20);
+    width: 29%;
+    margin: 10px 5px;
+    background-color: rgb(69, 175, 69);
+    font-size: 148%;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.dash-item:hover{
+    text-decoration: none;
+    color:  rgb(20, 65, 20);
+    background-color: rgb(96, 190, 96);
+}
+
+.dash-item a, .dash-item:link, .dash-item:visited, .dash-item:active{
+    text-decoration: none;
+    color:  rgb(20, 65, 20);
+}
+
+.dash-item:hover{
+    text-decoration: none;
+    color:  rgb(20, 65, 20);
+    box-shadow: 0 2px 5px black;
+}
+
+.box{
+    border: 2px solid rgb(71, 70, 70);
+    border-radius: 5px;
+    padding: 10px;
+    width: 40%;
+    margin: 30px auto;
+    background-color:rgb(96, 190, 96);
+}

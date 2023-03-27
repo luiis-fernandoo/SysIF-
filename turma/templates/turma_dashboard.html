@@ -1,0 +1,60 @@
+{% extends 'base.html' %} 
+
+{% load static %}
+{% load bootstrap %}
+
+{% block title %}Turma{% endblock %}
+
+{% block content %} 
+
+    <div class="info-div">
+        <a href="{% url 'turma:cadastrar' %}" class="cadastrar">
+            <img src="../../static/img/cadastro_simbolo.png" alt="" width="30px"> 
+            CADASTRAR
+        </a>
+
+        <a href="{% url 'turma:alocarAluno' %}" class="cadastrar">
+          <img src="../../static/img/cadastro_simbolo.png" alt="" width="30px"> 
+          ALOCAR ALUNO
+      </a>
+    </div>
+
+    
+    <table class="table table-striped table-sm">
+      <thead class="table-dark">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Código da turma</th>
+          <th scope="col">Semestre</th>
+          <th scope="col">Horário</th>
+          <th scope="col">Dia da Semana</th>
+          <th scope="col">Professor</th>
+          <th scope="col">Disciplina</th>
+          <th scope="col">Editar</th>
+          <th scope="col">Deletar</th>
+          <th scope="col">Ver</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in turmas_cadastradas %}
+        <tr>
+        <th scope="row">{{ forloop.counter }}</th>
+          <td>{{item.cod_turma}}</td>
+          <td>{{item.semestre}}</td>
+          <td>{{item.horario}}</td>
+          <td>{{item.dia_semana}}</td>
+          <td>{{item.id_professor}}</td>
+          <td>{{item.id_disciplina.nome_disciplina}}</td>
+          
+          <td><a class="btn btn-sm btn-warning" href="{% url 'turma:editar' item.id %}">Editar</a></td>
+          
+          <td><a class="btn btn-sm btn-danger" href="{% url 'turma:deletar' item.id %}" onclick="return confirm('Deseja deletar essa turma?')">Deletar</a></td>
+         
+          <td><a class="btn btn-sm btn-primary" href="{% url 'turma:verAlunos' item.id %}">Ver</a></td>
+
+        {% endfor %}
+        </tr>
+    
+    </tbody>
+    </table>
+{% endblock %}

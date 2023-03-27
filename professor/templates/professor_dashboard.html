@@ -1,0 +1,50 @@
+{% extends 'base.html' %} 
+
+{% load static %}
+{% load bootstrap %}
+
+{% block title %}Professor{% endblock %}
+
+{% block content %} 
+
+    <div class="info-div">
+        <a href="{% url 'professor:cadastrar' %}" class="cadastrar">
+            <img src="../../static/img/cadastro_simbolo.png" alt="" width="30px"> 
+            CADASTRAR
+        </a>
+    </div>
+    
+    <table class="table table-striped table-sm">
+      <thead class="table-dark">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Nome</th>
+          <th scope="col">Código</th>
+          <th scope="col">Titulção Máxima</th>
+          <th scope="col">Endereço</th>
+          <th scope="col">Telefone</th>
+          <th scope="col">Curso</th>
+          <th scope="col">Editar</th>
+          <th scope="col">Deletar</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in professores_cadastrados %}
+        <tr>
+        <th scope="row">{{ forloop.counter }}</th>
+          <td>{{item.nome}}</td>
+          <td>{{item.cod_professor}}</td>
+          <td>{{item.titulacaoMax}}</td>
+          <td>{{item.endereco}}</td>
+          <td>{{item.telefone}}</td>
+          <td>{{item.id_curso}}</td>
+          
+          <td><a class="btn btn-sm btn-warning" href="{% url 'professor:editar' item.id %}">Editar</a></td>
+          <td><a class="btn btn-sm btn-danger" href="{% url 'professor:deletar' item.id %}" onclick="return confirm('Deseja deletar esse professor?')">Deletar</a></td>
+
+        {% endfor %}
+        </tr>
+    
+    </tbody>
+    </table>
+{% endblock %}

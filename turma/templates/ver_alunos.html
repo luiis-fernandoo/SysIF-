@@ -1,0 +1,44 @@
+{% extends 'base.html' %} 
+
+{% load static %}
+{% load bootstrap %}
+
+{% block title %}Alunos da Turma{% endblock %}
+
+{% block content %} 
+
+    <div class="info-div">
+        <div class="form-title box">
+            <h3> {{turma.cod_turma}}</h3>
+           
+        </div>
+
+    </div>
+
+    
+    <table class="table table-striped table-sm">
+      <thead class="table-dark">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Nome</th>
+          <th scope="col">Matricula</th>
+          <th scope="col">Situacao</th>
+          <th scope="col">Retirar</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in alunos_alocados %}
+        <tr>
+        <th scope="row">{{ forloop.counter }}</th>
+          <td>{{item.id_aluno.nome}}</td>
+          <td>{{item.id_aluno.matricula}}</td>
+          <td>{{item.id_aluno.situacao}}</td>
+
+        <td><a class="btn btn-sm btn-danger" href="{% url 'turma:retirarAlunos' item.id_aluno.id item.id_turma.id %}" onclick="return confirm('Deseja retirar esse aluno da turma?')">Retirar</a></td>
+
+        {% endfor %}
+        </tr>
+    
+    </tbody>
+    </table>
+{% endblock %}
