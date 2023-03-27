@@ -1,0 +1,40 @@
+{% load static %}
+
+<nav class="navbar navbar-light bg-light shadow">
+    <div class="container-fluid">
+        <a href="{% url 'main:home' %}" class="navbar-brand">
+            <img src="../../static/img/logo_home.png" alt="" width="50px">
+            <span class="navbar-brand mb-0 h1">SysiF</span>
+        </a>
+  
+      <button class="navbar-toggler" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+  </nav>
+  
+  <div class="modal true" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-fullscreen">
+      <div class="modal-content">
+        <div class="modal-header">
+            <img src="../../static/img/logo_home.png" alt="" width="50px">
+          <h5 class="modal-title" id="exampleModalLabel"> SysiF</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+  
+          <ul class="list-group">
+            <a href="{% url 'aluno:dashboard'%}">  <li class="list-group-item"> <img src="../../static/img/aluno_dashboard.png" alt="" width="25px"> Aluno </li>  </a>
+            <a href="{% url 'professor:dashboard'%}">  <li class="list-group-item"> <img src="../../static/img/prof_dashboard.png" alt="" width="25px"> Professor</li>  </a>
+            <a href="{% url 'curso:dashboard'%}">  <li class="list-group-item"> <img src="../../static/img/curso_dashboard.png" alt="" width="25px"> Curso</li>  </a>
+            <a href="{% url 'turma:dashboard'%}">  <li class="list-group-item"> <img src="../../static/img/turma_dashboard.png" alt="" width="25px"> Turma</li>  </a>
+            <a href="{% url 'disciplina:dashboard'%}">  <li class="list-group-item">  <img src="../../static/img/disci_dashboard.png" alt="" width="25px"> Disciplina</li>  </a>
+            <a href="{% url 'turma:dashboardAvaliacao'%}">  <li class="list-group-item">  <img src="../../static/img/avali_dashboard.png" alt="" width="25px">Avaliação</li>  </a>
+          </ul>
+  
+        </div>
+
+      </div>
+    </div>
+  </div>
+  

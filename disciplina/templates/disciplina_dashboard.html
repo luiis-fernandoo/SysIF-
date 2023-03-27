@@ -1,0 +1,48 @@
+{% extends 'base.html' %} 
+
+{% load static %}
+{% load bootstrap %}
+
+{% block title %}Disciplina{% endblock %}
+
+{% block content %} 
+
+    <div class="info-div">
+        <a href="{% url 'disciplina:cadastrar' %}" class="cadastrar">
+            <img src="../../static/img/cadastro_simbolo.png" alt="" width="30px"> 
+            CADASTRAR
+        </a>
+    </div>
+    
+    <table class="table table-striped table-sm">
+      <thead class="table-dark">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Codigo da Disciplina</th>
+          <th scope="col">Nome da Disciplina</th>
+          <th scope="col">Descrição</th>
+          <th scope="col">Carga Horária</th>
+          <th scope="col">Curso</th>
+          <th scope="col">Editar</th>
+          <th scope="col">Deletar</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in disciplinas_cadastrados %}
+        <tr>
+        <th scope="row">{{ forloop.counter }}</th>
+          <td>{{item.cod_disciplina}}</td>
+          <td>{{item.nome_disciplina}}</td>
+          <td>{{item.descricao}}</td>
+          <td>{{item.carga_horaria}}</td>
+          <td>{{item.id_curso}}</td>
+
+          <td><a class="btn btn-sm btn-warning" href="{% url 'disciplina:editar' item.id %}">Editar</a></td>
+          <td><a class="btn btn-sm btn-danger" href="{% url 'disciplina:deletar' item.id %}" onclick="return confirm('Deseja deletar esse disciplina?')">Deletar</a></td>
+
+        {% endfor %}
+        </tr>
+    
+    </tbody>
+    </table>
+{% endblock %}
